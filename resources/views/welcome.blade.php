@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Todo list</title>
+        <title>TODO list</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,19 +23,23 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             <div style="color: grey;">    
-            
-                <form method="POST" action="{{ route('saveItem') }}" accept-charset="UTF-8">
-                    {{ csrf_field() }}
-
-                    <h1> Todo list </h1>
+                    <h1>TODO</h1>
+                    
                     @foreach ($listItems as $listItem)
-                        <p> Item: {{ $listItem->name}} </p>
+                    <div class="flex" style="align-items:center;">
+                        <form method="POST" action="{{ route('markDone', $listItem->id) }}" accept-charset="UTF-8">
+                                {{ csrf_field() }}
+                                <button type="submit" style="max-height:25px;margin-right: 30px;">Mark Done</button>                        
+                        </form>
+                        <p> {{ $listItem->name}} </p>     
+                    </div>
                     @endforeach
-
-                    <label>New Todo item</label><br>
-                    <input type="text" name="listItem"><br>
-                    <button type="submit">Save Item</button>
-                </form>
+                   
+                    <form method="POST" action="{{ route('saveItem') }}" accept-charset="UTF-8">
+                        {{ csrf_field() }}
+                        <button type="submit" style="max-height:25px;margin-right: 66px;">Add</button>
+                        <input type="text" name="listItem"><br>
+                    </form>
     
             </div>
         </div> 

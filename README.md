@@ -54,4 +54,9 @@ Route::post('/saveItemRoute', [TodoListController::class, 'saveItem'])->name('sa
     $listItem->save();
 ```
 - Similarly, now add data in page and fix the GET endpoint to show it.
+- Functioanlity added for marking done, saving in db and showing only not done items.
 
+## Result
+<img src="./todo1.png">
+<img src="./todo2.png">
+<img src="./todo3.png">
