@@ -46,4 +46,11 @@ Route::post('/saveItemRoute', [TodoListController::class, 'saveItem'])->name('sa
 ```php
 \Log::info(json_encode($request->all()));
 ```
+- Now, let's save the data we got in the api call `/saveItem`:
+```php
+    $listItem = new ListItem;        
+    $listItem->name = $request->listItem;
+    $listItem->is_complete = 0;
+    $listItem->save();
+```
 
