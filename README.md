@@ -42,3 +42,8 @@ php artisan make:controller TodoListController
 ```php
 Route::post('/saveItemRoute', [TodoListController::class, 'saveItem'])->name('saveItem');
 ```
+- Now, we need to actually persist our todo item in db. So what we are passing from a form comes in a $request object. Basically to see what a request object can have you can use and check the logs at `storage/logs/laravel.log`:
+```php
+\Log::info(json_encode($request->all()));
+```
+
