@@ -53,4 +53,5 @@ Route::post('/saveItemRoute', [TodoListController::class, 'saveItem'])->name('sa
     $listItem->is_complete = 0;
     $listItem->save();
 ```
+- Similarly, now add data in page and fix the GET endpoint to show it.
 
