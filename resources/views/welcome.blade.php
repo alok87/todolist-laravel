@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Todo list</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -28,6 +28,10 @@
                     {{ csrf_field() }}
 
                     <h1> Todo list </h1>
+                    @foreach ($listItems as $listItem)
+                        <p> Item: {{ $listItem->name}} </p>
+                    @endforeach
+
                     <label>New Todo item</label><br>
                     <input type="text" name="listItem"><br>
                     <button type="submit">Save Item</button>
