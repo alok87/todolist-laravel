@@ -22,11 +22,17 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            <div style="black">    
-                <h1> Todo list </h1>
-                <label>New Todo item</label><br>
-                <input type="text" name="listItem"><br>
-                <button>Save</button>
+            <div style="color: grey;">    
+            
+                <form method="POST" action="{{ route('saveItem') }}" accept-charset="UTF-8">
+                    {{ csrf_field() }}
+
+                    <h1> Todo list </h1>
+                    <label>New Todo item</label><br>
+                    <input type="text" name="listItem"><br>
+                    <button type="submit">Save Item</button>
+                </form>
+    
             </div>
         </div> 
     </body>
