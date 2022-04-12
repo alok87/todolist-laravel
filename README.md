@@ -34,7 +34,11 @@ Route::post('/saveItemRoute', function () {
     return view('welcome');
 })->name('saveItem');
 ``` 
-- Moving the business logic from routes/web.php to a controller, so first create a controller using artisan command. Then it would create a file `TodoListController` inside `App/Http/Controllers/`
+- Need a controller to move the business logic: `view('Welcome')` out of the routes. Create a controller using artisan command. Then it would create a file `TodoListController` inside `App/Http/Controllers/`
 ```php
 php artisan make:controller TodoListController
+```
+- Move the business logic into the controller. Hit TodoListController class's saveItem when saveItemRoute is called.
+```php
+Route::post('/saveItemRoute', [TodoListController::class, 'saveItem'])->name('saveItem');
 ```
